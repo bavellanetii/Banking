@@ -24,6 +24,13 @@ namespace Banking
         private Rectangle buttonYOriginalRectangle;
         private Rectangle button0OriginalRectangle;
         private Rectangle buttonNOriginalRectangle;
+        private Rectangle buttonArrow1OriginalRectangle;
+        private Rectangle buttonArrow2OriginalRectangle;
+        private Rectangle buttonArrow3OriginalRectangle;
+        private Rectangle buttonArrow4OriginalRectangle;
+        private Rectangle buttonArrow5OriginalRectangle;
+        private Rectangle buttonArrow6OriginalRectangle;
+
         private Rectangle originalFormSize;
         public Form1()
         {
@@ -46,6 +53,13 @@ namespace Banking
             buttonYOriginalRectangle = new Rectangle(buttonY.Location.X, buttonY.Location.Y, buttonY.Width, buttonY.Height);
             button0OriginalRectangle = new Rectangle(button0.Location.X, button0.Location.Y, button0.Width, button0.Height);
             buttonNOriginalRectangle = new Rectangle(buttonN.Location.X, buttonN.Location.Y, buttonN.Width, buttonN.Height);
+            buttonArrow1OriginalRectangle = new Rectangle(buttonArrow1.Location.X, buttonArrow1.Location.Y, buttonArrow1.Width, buttonArrow1.Height);
+            buttonArrow2OriginalRectangle = new Rectangle(buttonArrow2.Location.X, buttonArrow2.Location.Y, buttonArrow2.Width, buttonArrow2.Height);
+            buttonArrow3OriginalRectangle = new Rectangle(buttonArrow3.Location.X, buttonArrow3.Location.Y, buttonArrow3.Width, buttonArrow3.Height);
+            buttonArrow4OriginalRectangle = new Rectangle(buttonArrow4.Location.X, buttonArrow4.Location.Y, buttonArrow4.Width, buttonArrow4.Height);
+            buttonArrow5OriginalRectangle = new Rectangle(buttonArrow5.Location.X, buttonArrow5.Location.Y, buttonArrow5.Width, buttonArrow5.Height);
+            buttonArrow6OriginalRectangle = new Rectangle(buttonArrow6.Location.X, buttonArrow6.Location.Y, buttonArrow6.Width, buttonArrow6.Height);
+
         }
 
 
@@ -82,16 +96,29 @@ namespace Banking
             resizeControl(buttonYOriginalRectangle, buttonY);
             resizeControl(button0OriginalRectangle, button0);
             resizeControl(buttonNOriginalRectangle, buttonN);
-         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
+            resizeControl(buttonArrow1OriginalRectangle, buttonArrow1);
+            resizeControl(buttonArrow2OriginalRectangle, buttonArrow2);
+            resizeControl(buttonArrow3OriginalRectangle, buttonArrow3);
+            resizeControl(buttonArrow4OriginalRectangle, buttonArrow4);
+            resizeControl(buttonArrow5OriginalRectangle, buttonArrow5);
+            resizeControl(buttonArrow6OriginalRectangle, buttonArrow6);
 
         }
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "1";
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "2";
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "3";
+        }
         private void button4_Click(object sender, EventArgs e)
         {
-
+            textBox1.Text = textBox1.Text + "4";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -102,6 +129,31 @@ namespace Banking
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "5";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "6";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "7";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "8";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "9";
         }
     }
 }
