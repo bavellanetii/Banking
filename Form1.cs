@@ -12,6 +12,7 @@ namespace Banking
 {
     public partial class Form1 : Form
     {
+        
         private Rectangle button1OriginalRectangle;
         private Rectangle button2OriginalRectangle;
         private Rectangle button3OriginalRectangle;
@@ -30,8 +31,10 @@ namespace Banking
         private Rectangle buttonArrow4OriginalRectangle;
         private Rectangle buttonArrow5OriginalRectangle;
         private Rectangle buttonArrow6OriginalRectangle;
-
+        
+   
         private Rectangle originalFormSize;
+       
         public Form1()
         {
             InitializeComponent();
@@ -50,15 +53,13 @@ namespace Banking
             button7OriginalRectangle = new Rectangle(button7.Location.X, button7.Location.Y, button7.Width, button7.Height);
             button8OriginalRectangle = new Rectangle(button8.Location.X, button8.Location.Y, button8.Width, button8.Height);
             button9OriginalRectangle = new Rectangle(button9.Location.X, button9.Location.Y, button9.Width, button9.Height);
-            buttonYOriginalRectangle = new Rectangle(buttonY.Location.X, buttonY.Location.Y, buttonY.Width, buttonY.Height);
+            buttonYOriginalRectangle = new Rectangle(buttonClear.Location.X, buttonClear.Location.Y, buttonClear.Width, buttonClear.Height);
             button0OriginalRectangle = new Rectangle(button0.Location.X, button0.Location.Y, button0.Width, button0.Height);
-            buttonNOriginalRectangle = new Rectangle(buttonN.Location.X, buttonN.Location.Y, buttonN.Width, buttonN.Height);
+            buttonNOriginalRectangle = new Rectangle(buttonEnt.Location.X, buttonEnt.Location.Y, buttonEnt.Width, buttonEnt.Height);
             buttonArrow1OriginalRectangle = new Rectangle(buttonArrow1.Location.X, buttonArrow1.Location.Y, buttonArrow1.Width, buttonArrow1.Height);
             buttonArrow2OriginalRectangle = new Rectangle(buttonArrow2.Location.X, buttonArrow2.Location.Y, buttonArrow2.Width, buttonArrow2.Height);
             buttonArrow3OriginalRectangle = new Rectangle(buttonArrow3.Location.X, buttonArrow3.Location.Y, buttonArrow3.Width, buttonArrow3.Height);
-            buttonArrow4OriginalRectangle = new Rectangle(buttonArrow4.Location.X, buttonArrow4.Location.Y, buttonArrow4.Width, buttonArrow4.Height);
-            buttonArrow5OriginalRectangle = new Rectangle(buttonArrow5.Location.X, buttonArrow5.Location.Y, buttonArrow5.Width, buttonArrow5.Height);
-            buttonArrow6OriginalRectangle = new Rectangle(buttonArrow6.Location.X, buttonArrow6.Location.Y, buttonArrow6.Width, buttonArrow6.Height);
+  
 
         }
 
@@ -93,32 +94,92 @@ namespace Banking
             resizeControl(button7OriginalRectangle, button7);
             resizeControl(button8OriginalRectangle, button8);
             resizeControl(button9OriginalRectangle, button9);
-            resizeControl(buttonYOriginalRectangle, buttonY);
+            resizeControl(buttonYOriginalRectangle, buttonClear);
             resizeControl(button0OriginalRectangle, button0);
-            resizeControl(buttonNOriginalRectangle, buttonN);
+            resizeControl(buttonNOriginalRectangle, buttonEnt);
             resizeControl(buttonArrow1OriginalRectangle, buttonArrow1);
             resizeControl(buttonArrow2OriginalRectangle, buttonArrow2);
             resizeControl(buttonArrow3OriginalRectangle, buttonArrow3);
-            resizeControl(buttonArrow4OriginalRectangle, buttonArrow4);
-            resizeControl(buttonArrow5OriginalRectangle, buttonArrow5);
-            resizeControl(buttonArrow6OriginalRectangle, buttonArrow6);
+  
 
+
+        }
+        
+        private void buttonEnt_Click(object sender, EventArgs e)
+        {
+            textBoxEnterCard.Clear();
+            textBoxEnterCard.Text = "Please Enter Your Pin";
+
+            switch (textBoxPin.Text)
+            {
+                case "1234":
+                    textBoxPin.Clear();
+                    textBoxName.Text = "Welcome, Rachel";
+                
+                break;
+
+                case "4321":
+                    textBoxPin.Clear();
+                    textBoxName.Text = "Welcome Rachel";
+                    break;
+                default:
+                    textBoxEnterCard.Text = "Incorrect Pin, Please Try Again";
+                        return;
+
+            }
+          
+         /*       if (textBoxPin.Text == "1234")
+                {
+                    
+                    textBoxPin.Clear();
+                    textBoxEnterCard.Clear();
+                    
+                    textBoxLeft1.BringToFront();
+                    textBoxLeft2.BringToFront();
+                    textBoxLeft1.Text = "Deposit Money";
+                    textBoxLeft2.Text = "Withdraw Money";
+                    textBoxLeft3.Text = "View Balance";
+
+                }
+           */ 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "1";
+            if (textBoxEnterCard.Text=="Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+                
+                textBoxPin.Text = textBoxPin.Text + "1";
+
+            }
+            
+            
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "2";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "2";
+
+            }
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "3";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "3";
+
+            }
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "4";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "4";
+
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -133,27 +194,65 @@ namespace Banking
 
         private void button5_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "5";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "5";
+
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "6";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "6";
+
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "7";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+                textBoxPin.Text = textBoxPin.Text + "7";
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "8";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "8";
+
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "9";
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "9";
+
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textBoxPin.Clear();
+        }
+
+        private void button0_Click(object sender, EventArgs e)
+        {
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            {
+
+                textBoxPin.Text = textBoxPin.Text + "0";
+
+            }
         }
     }
 }
