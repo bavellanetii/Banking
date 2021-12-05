@@ -105,47 +105,10 @@ namespace Banking
 
         }
         
-        private void buttonEnt_Click(object sender, EventArgs e)
-        {
-            textBoxEnterCard.Clear();
-            textBoxEnterCard.Text = "Please Enter Your Pin";
-
-            switch (textBoxPin.Text)
-            {
-                case "1234":
-                    textBoxPin.Clear();
-                    textBoxName.Text = "Welcome, Rachel";
-                
-                break;
-
-                case "4321":
-                    textBoxPin.Clear();
-                    textBoxName.Text = "Welcome Rachel";
-                    break;
-                default:
-                    textBoxEnterCard.Text = "Incorrect Pin, Please Try Again";
-                        return;
-
-            }
-          
-         /*       if (textBoxPin.Text == "1234")
-                {
-                    
-                    textBoxPin.Clear();
-                    textBoxEnterCard.Clear();
-                    
-                    textBoxLeft1.BringToFront();
-                    textBoxLeft2.BringToFront();
-                    textBoxLeft1.Text = "Deposit Money";
-                    textBoxLeft2.Text = "Withdraw Money";
-                    textBoxLeft3.Text = "View Balance";
-
-                }
-           */ 
-        }
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text=="Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text=="Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
                 
                 textBoxPin.Text = textBoxPin.Text + "1";
@@ -156,7 +119,7 @@ namespace Banking
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "2";
@@ -165,7 +128,7 @@ namespace Banking
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "3";
@@ -174,7 +137,7 @@ namespace Banking
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "4";
@@ -194,7 +157,7 @@ namespace Banking
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "5";
@@ -204,7 +167,7 @@ namespace Banking
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "6";
@@ -214,7 +177,7 @@ namespace Banking
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
                 textBoxPin.Text = textBoxPin.Text + "7";
             }
@@ -222,7 +185,7 @@ namespace Banking
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "8";
@@ -232,7 +195,7 @@ namespace Banking
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
+            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
             {
 
                 textBoxPin.Text = textBoxPin.Text + "9";
@@ -252,6 +215,47 @@ namespace Banking
 
                 textBoxPin.Text = textBoxPin.Text + "0";
 
+            }
+        }
+
+        private void buttonEnt_Click(object sender, EventArgs e)
+        {
+            if (textBoxEnterCard.Text == "Please Enter Your Card")
+            {
+                textBoxEnterCard.Clear();
+                textBoxEnterCard2.Clear();
+                textBoxEnterCard.Text = "Please Enter Your Pin";
+            }
+
+
+            if (textBoxPin.Text == "1234")
+                   {
+                        
+                       textBoxPin.Clear();
+                       textBoxEnterCard.Clear();
+
+                       textBoxLeft1.BringToFront();
+                       textBoxLeft2.BringToFront();
+                       textBoxLeft1.Text = "Deposit Money";
+                       textBoxLeft2.Text = "Withdraw Money";
+                       textBoxLeft3.Text = "View Balance";
+
+                   }
+             else if (textBoxPin.Text == "4321")
+                {
+                textBoxPin.Clear();
+                textBoxEnterCard.Clear();
+
+                textBoxLeft1.BringToFront();
+                textBoxLeft2.BringToFront();
+                textBoxLeft1.Text = "Deposit Money";
+                textBoxLeft2.Text = "Withdraw Money";
+                textBoxLeft3.Text = "View Balance";
+            }
+            else if (textBoxPin.Text.Length == 4 & (textBoxPin.Text != "4321" || textBoxPin.Text != "1234"))
+            {
+                textBoxEnterCard.Text = "Incorrect Pin, Please Try Again.";
+                textBoxPin.Clear();
             }
         }
     }
