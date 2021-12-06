@@ -254,6 +254,7 @@ namespace Banking
             }
             else if (textBoxPin.Text.Length == 4 & (textBoxPin.Text != "4321" || textBoxPin.Text != "1234"))
             {
+                textBoxEnterCard.Font = new Font("Arial", 20, FontStyle.Bold);
                 textBoxEnterCard.Text = "Incorrect Pin, Please Try Again.";
                 textBoxPin.Clear();
             }
