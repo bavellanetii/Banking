@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Banking.Properties;
 
 namespace Banking
 {
@@ -245,7 +246,6 @@ namespace Banking
                 {
                 textBoxPin.Clear();
                 textBoxEnterCard.Clear();
-
                 textBoxLeft1.BringToFront();
                 textBoxLeft2.BringToFront();
                 textBoxLeft1.Text = "Deposit Money";
