@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Banking.Properties;
+using System.Data.SqlClient;
 
 namespace Banking
 {
@@ -40,6 +41,8 @@ namespace Banking
         {
             InitializeComponent();
         }
+
+        SqlConnection sc = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bavel\source\repos\Banking\Database1.mdf;Integrated Security=True");
 
         private void Form1_Load(object sender, EventArgs e)
         {
