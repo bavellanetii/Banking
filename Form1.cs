@@ -33,6 +33,8 @@ namespace Banking
         private Rectangle buttonArrow4OriginalRectangle;
         private Rectangle buttonArrow5OriginalRectangle;
         private Rectangle buttonArrow6OriginalRectangle;
+        public static Form1 instance;
+
         
    
         private Rectangle originalFormSize;
@@ -40,6 +42,9 @@ namespace Banking
         public Form1()
         {
             InitializeComponent();
+            
+            //saves instance to be accessed by another form
+            instance = this;
         }
 
         SqlConnection sc = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bavel\source\repos\Banking\Database1.mdf;Integrated Security=True");
@@ -261,6 +266,12 @@ namespace Banking
                 textBoxEnterCard.Text = "Incorrect Pin, Please Try Again.";
                 textBoxPin.Clear();
             }
+        }
+
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
         }
     }
 }

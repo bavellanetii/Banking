@@ -56,6 +56,7 @@ namespace Banking
             this.textBoxPin = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxEnterCard2 = new System.Windows.Forms.TextBox();
+            this.buttonAddUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -65,7 +66,7 @@ namespace Banking
             this.button1.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(270, 643);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Padding = new System.Windows.Forms.Padding(5);
             this.button1.Size = new System.Drawing.Size(100, 100);
             this.button1.TabIndex = 0;
             this.button1.Text = "1";
@@ -357,6 +358,16 @@ namespace Banking
             this.textBoxEnterCard2.Text = "And Press Enter";
             this.textBoxEnterCard2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // buttonAddUser
+            // 
+            this.buttonAddUser.Location = new System.Drawing.Point(751, 815);
+            this.buttonAddUser.Name = "buttonAddUser";
+            this.buttonAddUser.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddUser.TabIndex = 31;
+            this.buttonAddUser.Text = "Add User";
+            this.buttonAddUser.UseVisualStyleBackColor = true;
+            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -364,6 +375,7 @@ namespace Banking
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(884, 884);
+            this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.textBoxEnterCard2);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxPin);
@@ -430,6 +442,7 @@ namespace Banking
         private System.Windows.Forms.TextBox textBoxPin;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxEnterCard2;
+        private System.Windows.Forms.Button buttonAddUser;
     }
 }
 
