@@ -113,47 +113,10 @@ namespace Banking
 
 
         }
-        
-       
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text=="Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-                
-                textBoxPin.Text = textBoxPin.Text + "1";
 
-            }
-            
-            
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
+    
 
-                textBoxPin.Text = textBoxPin.Text + "2";
-
-            }
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "3";
-
-            }
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "4";
-
-            }
-        }
-
+  
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -164,68 +127,13 @@ namespace Banking
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "5";
-
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "6";
-
-            }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-                textBoxPin.Text = textBoxPin.Text + "7";
-            }
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "8";
-
-            }
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again." && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "9";
-
-            }
-        }
-
+  
         private void buttonClear_Click(object sender, EventArgs e)
         {
             textBoxPin.Clear();
         }
 
-        private void button0_Click(object sender, EventArgs e)
-        {
-            if (textBoxEnterCard.Text == "Please Enter Your Pin" && textBoxPin.Text.Length < 4)
-            {
-
-                textBoxPin.Text = textBoxPin.Text + "0";
-
-            }
-        }
+  
 
         private void buttonEnt_Click(object sender, EventArgs e)
         {
@@ -270,10 +178,23 @@ namespace Banking
             }
         }
 
+        private void buttonKeys_Click(object sender, EventArgs e)
+        {
+            if ((textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again.") && textBoxPin.Text.Length < 4)
+            {
+                Button button = (Button)sender;
+                textBoxPin.Text = textBoxPin.Text + button.Text;
+            }
+
+        }
+
+
         private void buttonAddUser_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2();
             form.Show();
         }
+
+        
     }
 }
