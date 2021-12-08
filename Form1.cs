@@ -229,6 +229,8 @@ namespace Banking
 
         private void buttonEnt_Click(object sender, EventArgs e)
         {
+            String pin = textBoxPin.Text;
+            
             if (textBoxEnterCard.Text == "Please Enter Your Card")
             {
                 textBoxEnterCard.Clear();
