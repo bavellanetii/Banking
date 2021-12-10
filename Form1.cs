@@ -213,7 +213,19 @@ namespace Banking
 
             if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw <= userBalanceNum && (parsedWithdraw % 5 == 0))
             {
+                sc.Open();
+                
+                 
+                string sqlUpdate = @"UPDATE username 
+                                    SET balance = balance - @ parsedWithdraw
+                                    WHERE name = @userName";
+                SqlCommand withdrawUpdate = new SqlCommand(sqlUpdate, sc);
+                withdrawUpdate.Parameters.AddWithValue("parsedWithdraw", parsedWithdraw);
+                withdrawUpdate.Parameters.AddWithValue("userName", userName);
 
+
+                sc.Close();
+                textBoxPin.Clear();
                 textBoxUserData.Clear();
                 textBoxEnterCard.Clear();
                 textBoxEnterCard2.Clear();
