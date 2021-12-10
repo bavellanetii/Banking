@@ -196,6 +196,13 @@ namespace Banking
                 textBoxPin.Text = textBoxPin.Text + button.Text;
             }
 
+            if (textBoxUserData.Text == "How much would you like to withdraw?")
+            {
+                Button button = (Button)sender;
+                textBoxPin.UseSystemPasswordChar = false;
+                textBoxPin.Text = textBoxPin.Text + button.Text;
+            }
+
         }
 
 
@@ -217,7 +224,7 @@ namespace Banking
                 textBoxLeft1.Clear();
                 textBoxLeft2.Clear();
                 textBoxLeft3.Clear();
-                textBoxEnterCard.BringToFront();
+              
                 textBoxUserData.Text = "Your Balance is " + userBalance;
             }
         }
@@ -225,6 +232,19 @@ namespace Banking
         private void textBoxLeft1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonArrow2_Click(object sender, EventArgs e)
+        {
+            if (textBoxLeft2.Text == "Withdraw Money")
+            {
+                textBoxLeft1.Clear();
+                textBoxLeft2.Clear();
+                textBoxLeft3.Clear();
+                textBoxPin.Show();
+
+                textBoxUserData.Text = "How much would you like to withdraw? (Max £99)";
+            }
         }
     }
 }

@@ -222,6 +222,7 @@ namespace Banking
             this.buttonArrow2.TabIndex = 14;
             this.buttonArrow2.Text = ">";
             this.buttonArrow2.UseVisualStyleBackColor = true;
+            this.buttonArrow2.Click += new System.EventHandler(this.buttonArrow2_Click);
             // 
             // buttonArrow1
             // 
