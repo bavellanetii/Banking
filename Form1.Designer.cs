@@ -230,6 +230,7 @@ namespace Banking
             this.buttonArrow1.TabIndex = 15;
             this.buttonArrow1.Text = ">";
             this.buttonArrow1.UseVisualStyleBackColor = true;
+            this.buttonArrow1.Click += new System.EventHandler(this.buttonArrow1_Click);
             // 
             // label1
             // 
@@ -279,6 +280,7 @@ namespace Banking
             this.textBoxLeft3.Name = "textBoxLeft3";
             this.textBoxLeft3.Size = new System.Drawing.Size(243, 34);
             this.textBoxLeft3.TabIndex = 23;
+            this.textBoxLeft3.TextChanged += new System.EventHandler(this.textBoxLeft3_TextChanged);
             // 
             // textBoxEnterCard
             // 
@@ -326,7 +328,6 @@ namespace Banking
             this.textBoxEnterCard2.TabIndex = 30;
             this.textBoxEnterCard2.Text = "And Press Enter";
             this.textBoxEnterCard2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-           
             // 
             // buttonAddUser
             // 

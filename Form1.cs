@@ -33,8 +33,10 @@ namespace Banking
 
         public static Form1 instance;
 
-        
-   
+        string userName;
+        string userPin;
+        string userBalance;
+
         private Rectangle originalFormSize;
        
         public Form1()
@@ -130,43 +132,46 @@ namespace Banking
                 textBoxEnterCard.Text = "Please Enter Your Pin";
             }
 
-            string userName;
-            string userPin;
-            string userBalance;
-            
-            sc.Open();
-            SqlCommand cmd = new SqlCommand();
-
-            string login = "SELECT * FROM username WHERE pin= '" + textBoxPin.Text + "'";
-            cmd = new SqlCommand(login, sc);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-            
-            if (reader.Read() == true)
+            else if (textBoxEnterCard.Text == "Please Enter Your Pin" || textBoxEnterCard.Text == "Incorrect Pin, Please Try Again.")
             {
-                userName = reader["name"].ToString();
-                userPin = reader["pin"].ToString();
-                userBalance = reader["Balance"].ToString();
 
-                textBoxPin.Clear();
-                textBoxEnterCard.Clear();
 
-                textBoxLeft1.BringToFront();
-                textBoxLeft2.BringToFront();
-                textBoxLeft1.Text = "Deposit Money";
-                textBoxLeft2.Text = "Withdraw Money";
-                textBoxLeft3.Text = "View Balance";
+
+                sc.Open();
+                SqlCommand cmd = new SqlCommand();
+
+                string login = "SELECT * FROM username WHERE pin= '" + textBoxPin.Text + "'";
+                cmd = new SqlCommand(login, sc);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+
+
+                    userName = reader["name"].ToString();
+                    userPin = reader["pin"].ToString();
+                    userBalance = reader["Balance"].ToString();
+
+                    textBoxPin.Clear();
+                    textBoxEnterCard.Clear();
+
+                    textBoxLeft1.BringToFront();
+                    textBoxLeft2.BringToFront();
+                    textBoxLeft1.Text = "Deposit Money";
+                    textBoxLeft2.Text = "Withdraw Money";
+                    textBoxLeft3.Text = "View Balance";
+                }
+                else
+                {
+                    textBoxEnterCard.Font = new Font("Arial", 20, FontStyle.Bold);
+                    textBoxEnterCard.Text = "Incorrect Pin, Please Try Again.";
+                    textBoxPin.Clear();
+                }
+                reader.Close();
+
+                sc.Close();
             }
-            else
-            {
-                textBoxEnterCard.Font = new Font("Arial", 20, FontStyle.Bold);
-                textBoxEnterCard.Text = "Incorrect Pin, Please Try Again.";
-                textBoxPin.Clear();
-            }
-            reader.Close();
-
-            sc.Close();
-
 
 
 
@@ -192,6 +197,21 @@ namespace Banking
             form.Show();
         }
 
+        private void textBoxLeft3_TextChanged(object sender, EventArgs e)
+        {
+ 
+        }
 
+        private void buttonArrow1_Click(object sender, EventArgs e)
+        {
+            if (textBoxLeft3.Text == "View Balance")
+            {
+                textBoxLeft1.Clear();
+                textBoxLeft2.Clear();
+                textBoxLeft3.Clear();
+                textBoxEnterCard.BringToFront();
+                textBoxEnterCard.Text = "Your Balance is " + userBalance;
+            }
+        }
     }
 }
