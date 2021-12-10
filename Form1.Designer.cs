@@ -290,10 +290,10 @@ namespace Banking
             // 
             this.textBoxEnterCard.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxEnterCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxEnterCard.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxEnterCard.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxEnterCard.Location = new System.Drawing.Point(13, 34);
             this.textBoxEnterCard.Name = "textBoxEnterCard";
-            this.textBoxEnterCard.Size = new System.Drawing.Size(514, 31);
+            this.textBoxEnterCard.Size = new System.Drawing.Size(514, 32);
             this.textBoxEnterCard.TabIndex = 27;
             this.textBoxEnterCard.Text = "Please Enter Your Card";
             this.textBoxEnterCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -302,12 +302,12 @@ namespace Banking
             // 
             this.textBoxPin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxPin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPin.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxPin.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxPin.Location = new System.Drawing.Point(480, 202);
             this.textBoxPin.MaxLength = 4;
             this.textBoxPin.Name = "textBoxPin";
             this.textBoxPin.ReadOnly = true;
-            this.textBoxPin.Size = new System.Drawing.Size(196, 36);
+            this.textBoxPin.Size = new System.Drawing.Size(196, 32);
             this.textBoxPin.TabIndex = 28;
             this.textBoxPin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxPin.UseSystemPasswordChar = true;
@@ -316,11 +316,11 @@ namespace Banking
             // 
             this.textBoxEnterCard2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxEnterCard2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxEnterCard2.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxEnterCard2.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxEnterCard2.Location = new System.Drawing.Point(47, 70);
             this.textBoxEnterCard2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEnterCard2.Name = "textBoxEnterCard2";
-            this.textBoxEnterCard2.Size = new System.Drawing.Size(437, 31);
+            this.textBoxEnterCard2.Size = new System.Drawing.Size(437, 32);
             this.textBoxEnterCard2.TabIndex = 30;
             this.textBoxEnterCard2.Text = "And Press Enter";
             this.textBoxEnterCard2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -339,7 +339,7 @@ namespace Banking
             // 
             this.textBoxUserData.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxUserData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUserData.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserData.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxUserData.Location = new System.Drawing.Point(320, 142);
             this.textBoxUserData.Name = "textBoxUserData";
             this.textBoxUserData.Size = new System.Drawing.Size(514, 32);

@@ -39,6 +39,7 @@ namespace Banking
         decimal parsedWithdraw;
         decimal userBalanceNum;
 
+
         private Rectangle originalFormSize;
        
         public Form1()
@@ -122,6 +123,14 @@ namespace Banking
         private void buttonClear_Click(object sender, EventArgs e)
         {
             textBoxPin.Clear();
+
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)")
+            {
+                textBoxEnterCard.Clear();
+                
+
+            }
+
         }
 
   
@@ -185,25 +194,32 @@ namespace Banking
 
       
             }
-
-
+            
+            
             if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw > userBalanceNum)
             {
-                textBoxUserData.Text = "You do not have enough money. Try again.";
+                textBoxEnterCard.Font = new Font("Arial", 15);
+                textBoxEnterCard.Show();
+                textBoxEnterCard.Text = "You do not have enough money. Try again.";
             }
-            
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw <= 100)
-            {
-                
 
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && (parsedWithdraw % 5 != 0))
+            {
+                textBoxEnterCard.Font = new Font("Arial", 15);
+                textBoxEnterCard.Show();
+                textBoxEnterCard.Text = "We can only give withdrawals in £5, £10, & £20 notes";
+
+            }
+
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw <= userBalanceNum && (parsedWithdraw % 5 == 0))
+            {
+
+                textBoxUserData.Clear();
                 textBoxEnterCard.Clear();
                 textBoxEnterCard2.Clear();
                 
             }
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw > 100)
-            {
-                textBoxEnterCard.Text = "You cannot withdraw more than £100";
-            }
+
 
 
 
@@ -243,9 +259,9 @@ namespace Banking
         {
             if (textBoxLeft3.Text == "View Balance")
             {
-                textBoxLeft1.Clear();
-                textBoxLeft2.Clear();
-                textBoxLeft3.Clear();
+                textBoxLeft1.Show();
+                textBoxLeft2.Show();
+                textBoxLeft3.Hide();
               
                 textBoxUserData.Text = "Your Balance is " + userBalance;
             }
@@ -260,11 +276,12 @@ namespace Banking
         {
             if (textBoxLeft2.Text == "Withdraw Money")
             {
-                textBoxLeft1.Clear();
-                textBoxLeft2.Clear();
-                textBoxLeft3.Clear();
+                textBoxLeft1.Show();
+                textBoxLeft2.Hide();
+                textBoxLeft3.Show();
                 textBoxPin.Show();
 
+                textBoxUserData.Font = new Font("Arial", 15);
                 textBoxUserData.Text = "How much would you like to withdraw? (Max £100)";
             }
         }
