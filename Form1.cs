@@ -36,6 +36,8 @@ namespace Banking
         string userName;
         string userPin;
         string userBalance;
+        decimal parsedWithdraw;
+        decimal userBalanceNum;
 
         private Rectangle originalFormSize;
        
@@ -154,6 +156,7 @@ namespace Banking
                     userName = reader["name"].ToString();
                     userPin = reader["pin"].ToString();
                     userBalance = reader["Balance"].ToString();
+                    userBalanceNum = Decimal.Parse(userBalance);
 
                     textBoxPin.Clear();
                     textBoxPin.Hide();
@@ -179,13 +182,31 @@ namespace Banking
                 reader.Close();
 
                 sc.Close();
+
+      
+            }
+
+
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw > userBalanceNum)
+            {
+                textBoxUserData.Text = "You do not have enough money. Try again.";
+            }
+            
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw <= 100)
+            {
+                
+
+                textBoxEnterCard.Clear();
+                textBoxEnterCard2.Clear();
+                
+            }
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw > 100)
+            {
+                textBoxEnterCard.Text = "You cannot withdraw more than £100";
             }
 
 
 
-            
-            
-         
         }
 
         private void buttonKeys_Click(object sender, EventArgs e)
@@ -196,11 +217,12 @@ namespace Banking
                 textBoxPin.Text = textBoxPin.Text + button.Text;
             }
 
-            if (textBoxUserData.Text == "How much would you like to withdraw?")
+            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && textBoxPin.Text.Length < 5)
             {
                 Button button = (Button)sender;
                 textBoxPin.UseSystemPasswordChar = false;
                 textBoxPin.Text = textBoxPin.Text + button.Text;
+                parsedWithdraw = Decimal.Parse(textBoxPin.Text);
             }
 
         }
@@ -243,7 +265,7 @@ namespace Banking
                 textBoxLeft3.Clear();
                 textBoxPin.Show();
 
-                textBoxUserData.Text = "How much would you like to withdraw? (Max £99)";
+                textBoxUserData.Text = "How much would you like to withdraw? (Max £100)";
             }
         }
     }
