@@ -68,7 +68,9 @@ namespace Banking
             buttonArrow1OriginalRectangle = new Rectangle(buttonArrow1.Location.X, buttonArrow1.Location.Y, buttonArrow1.Width, buttonArrow1.Height);
             buttonArrow2OriginalRectangle = new Rectangle(buttonArrow2.Location.X, buttonArrow2.Location.Y, buttonArrow2.Width, buttonArrow2.Height);
             buttonArrow3OriginalRectangle = new Rectangle(buttonArrow3.Location.X, buttonArrow3.Location.Y, buttonArrow3.Width, buttonArrow3.Height);
-  
+            panel1.SendToBack();
+            textBoxUserData.Hide();
+
 
         }
 
@@ -154,13 +156,19 @@ namespace Banking
                     userBalance = reader["Balance"].ToString();
 
                     textBoxPin.Clear();
+                    textBoxPin.Hide();
                     textBoxEnterCard.Clear();
+                    textBoxEnterCard.Hide();
+                    textBoxEnterCard2.Hide();
 
                     textBoxLeft1.BringToFront();
                     textBoxLeft2.BringToFront();
                     textBoxLeft1.Text = "Deposit Money";
                     textBoxLeft2.Text = "Withdraw Money";
                     textBoxLeft3.Text = "View Balance";
+
+                    textBoxUserData.Show();
+                    textBoxUserData.Text = "Welcome " + userName;
                 }
                 else
                 {
@@ -210,8 +218,13 @@ namespace Banking
                 textBoxLeft2.Clear();
                 textBoxLeft3.Clear();
                 textBoxEnterCard.BringToFront();
-                textBoxEnterCard.Text = "Your Balance is " + userBalance;
+                textBoxUserData.Text = "Your Balance is " + userBalance;
             }
+        }
+
+        private void textBoxLeft1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

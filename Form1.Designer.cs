@@ -51,9 +51,11 @@ namespace Banking
             this.textBoxLeft3 = new System.Windows.Forms.TextBox();
             this.textBoxEnterCard = new System.Windows.Forms.TextBox();
             this.textBoxPin = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxEnterCard2 = new System.Windows.Forms.TextBox();
             this.buttonAddUser = new System.Windows.Forms.Button();
+            this.textBoxUserData = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -257,36 +259,38 @@ namespace Banking
             // textBoxLeft1
             // 
             this.textBoxLeft1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLeft1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxLeft1.Location = new System.Drawing.Point(144, 46);
+            this.textBoxLeft1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxLeft1.Location = new System.Drawing.Point(125, 53);
             this.textBoxLeft1.Name = "textBoxLeft1";
-            this.textBoxLeft1.Size = new System.Drawing.Size(243, 34);
+            this.textBoxLeft1.Size = new System.Drawing.Size(154, 25);
             this.textBoxLeft1.TabIndex = 21;
+            this.textBoxLeft1.TextChanged += new System.EventHandler(this.textBoxLeft1_TextChanged);
             // 
             // textBoxLeft2
             // 
             this.textBoxLeft2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLeft2.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxLeft2.Location = new System.Drawing.Point(144, 144);
+            this.textBoxLeft2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxLeft2.Location = new System.Drawing.Point(125, 142);
             this.textBoxLeft2.Name = "textBoxLeft2";
-            this.textBoxLeft2.Size = new System.Drawing.Size(243, 34);
+            this.textBoxLeft2.Size = new System.Drawing.Size(173, 25);
             this.textBoxLeft2.TabIndex = 22;
             // 
             // textBoxLeft3
             // 
             this.textBoxLeft3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxLeft3.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxLeft3.Location = new System.Drawing.Point(144, 242);
+            this.textBoxLeft3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxLeft3.Location = new System.Drawing.Point(125, 249);
             this.textBoxLeft3.Name = "textBoxLeft3";
-            this.textBoxLeft3.Size = new System.Drawing.Size(243, 34);
+            this.textBoxLeft3.Size = new System.Drawing.Size(154, 25);
             this.textBoxLeft3.TabIndex = 23;
             this.textBoxLeft3.TextChanged += new System.EventHandler(this.textBoxLeft3_TextChanged);
             // 
             // textBoxEnterCard
             // 
+            this.textBoxEnterCard.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxEnterCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEnterCard.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxEnterCard.Location = new System.Drawing.Point(154, 70);
+            this.textBoxEnterCard.Location = new System.Drawing.Point(13, 34);
             this.textBoxEnterCard.Name = "textBoxEnterCard";
             this.textBoxEnterCard.Size = new System.Drawing.Size(514, 31);
             this.textBoxEnterCard.TabIndex = 27;
@@ -295,10 +299,10 @@ namespace Banking
             // 
             // textBoxPin
             // 
-            this.textBoxPin.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxPin.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxPin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPin.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPin.Location = new System.Drawing.Point(332, 202);
+            this.textBoxPin.Location = new System.Drawing.Point(480, 202);
             this.textBoxPin.MaxLength = 4;
             this.textBoxPin.Name = "textBoxPin";
             this.textBoxPin.ReadOnly = true;
@@ -307,21 +311,12 @@ namespace Banking
             this.textBoxPin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxPin.UseSystemPasswordChar = true;
             // 
-            // textBoxName
-            // 
-            this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxName.Location = new System.Drawing.Point(246, 303);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(347, 26);
-            this.textBoxName.TabIndex = 29;
-            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // textBoxEnterCard2
             // 
+            this.textBoxEnterCard2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBoxEnterCard2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEnterCard2.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBoxEnterCard2.Location = new System.Drawing.Point(218, 106);
+            this.textBoxEnterCard2.Location = new System.Drawing.Point(47, 70);
             this.textBoxEnterCard2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEnterCard2.Name = "textBoxEnterCard2";
             this.textBoxEnterCard2.Size = new System.Drawing.Size(437, 31);
@@ -339,6 +334,28 @@ namespace Banking
             this.buttonAddUser.UseVisualStyleBackColor = true;
             this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
             // 
+            // textBoxUserData
+            // 
+            this.textBoxUserData.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxUserData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserData.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBoxUserData.Location = new System.Drawing.Point(320, 142);
+            this.textBoxUserData.Name = "textBoxUserData";
+            this.textBoxUserData.Size = new System.Drawing.Size(514, 32);
+            this.textBoxUserData.TabIndex = 32;
+            this.textBoxUserData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.textBoxEnterCard);
+            this.panel1.Controls.Add(this.textBoxEnterCard2);
+            this.panel1.Location = new System.Drawing.Point(304, 34);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(547, 295);
+            this.panel1.TabIndex = 33;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -346,11 +363,10 @@ namespace Banking
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(884, 715);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.textBoxUserData);
             this.Controls.Add(this.buttonAddUser);
-            this.Controls.Add(this.textBoxEnterCard2);
-            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.textBoxPin);
-            this.Controls.Add(this.textBoxEnterCard);
             this.Controls.Add(this.textBoxLeft3);
             this.Controls.Add(this.textBoxLeft2);
             this.Controls.Add(this.textBoxLeft1);
@@ -376,6 +392,8 @@ namespace Banking
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,9 +423,10 @@ namespace Banking
         private System.Windows.Forms.TextBox textBoxLeft3;
         private System.Windows.Forms.TextBox textBoxEnterCard;
         private System.Windows.Forms.TextBox textBoxPin;
-        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxEnterCard2;
         private System.Windows.Forms.Button buttonAddUser;
+        private System.Windows.Forms.TextBox textBoxUserData;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
