@@ -144,6 +144,12 @@ namespace Banking
         private void buttonEnt_Click(object sender, EventArgs e)
         {
 
+            if (textBoxUserData.Text == "Success, Select another Service or Press 'ENT' to Exit")
+            {
+                Application.Exit();
+            }
+
+
             if (textBoxEnterCard.Text == "Please Enter Your Card")
             {
                 textBoxEnterCard.Clear();
@@ -237,7 +243,7 @@ namespace Banking
                 }
                 
                 textBoxPin.Clear();
-                textBoxUserData.Clear();
+                textBoxUserData.Text = "Success, Select another Service or Press 'ENT' to Exit";
                 textBoxEnterCard.Clear();
                 textBoxEnterCard2.Clear();
                 
@@ -261,6 +267,7 @@ namespace Banking
 
             }
 
+           
             if (textBoxUserData.Text == "How much would you like to deposit? (Max £100)" && parsedDeposit <= 100 && (parsedWithdraw % 5 == 0))
             {
 
@@ -287,10 +294,7 @@ namespace Banking
 
             }
 
-            if (textBoxUserData.Text == "Success, Select another Service or Press 'ENT' to Exit")
-            {
-                Application.Exit();
-            }
+ 
 
         }
 
@@ -362,7 +366,7 @@ namespace Banking
                 textBoxLeft2.Show();
                 textBoxLeft3.Hide();
               
-                textBoxUserData.Text = "Your Balance is " + userBalance;
+                textBoxUserData.Text = "Your Balance is £" + userBalance;
             }
         }
 
