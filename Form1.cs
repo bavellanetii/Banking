@@ -38,6 +38,7 @@ namespace Banking
         string userBalance;
         decimal parsedWithdraw;
         decimal userBalanceNum;
+        decimal parsedDeposit;
 
 
         private Rectangle originalFormSize;
@@ -124,10 +125,15 @@ namespace Banking
         {
             textBoxPin.Clear();
 
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)")
+            if (textBoxUserData.Text == "How much would you like to withdraw?")
             {
                 textBoxEnterCard.Clear();
                 
+            }
+
+            if (textBoxUserData.Text == "How much would you like to deposit? (Max £100)")
+            {
+                textBoxEnterCard.Clear();
 
             }
 
@@ -196,14 +202,14 @@ namespace Banking
             }
             
             
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw > userBalanceNum)
+            if (textBoxUserData.Text == "How much would you like to withdraw?)" && parsedWithdraw > userBalanceNum)
             {
                 textBoxEnterCard.Font = new Font("Arial", 15);
                 textBoxEnterCard.Show();
-                textBoxEnterCard.Text = "You do not have enough money. Try again.";
+                textBoxEnterCard.Text = "You are trying to withdraw more money that you have!";
             }
 
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && (parsedWithdraw % 5 != 0))
+            if (textBoxUserData.Text == "How much would you like to withdraw?" && (parsedWithdraw % 5 != 0))
             {
                 textBoxEnterCard.Font = new Font("Arial", 15);
                 textBoxEnterCard.Show();
@@ -211,7 +217,7 @@ namespace Banking
 
             }
 
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && parsedWithdraw <= userBalanceNum && (parsedWithdraw % 5 == 0))
+            if (textBoxUserData.Text == "How much would you like to withdraw?" && parsedWithdraw <= userBalanceNum && (parsedWithdraw % 5 == 0))
             {
                 
                 
@@ -240,6 +246,52 @@ namespace Banking
 
 
 
+            if (textBoxUserData.Text == "How much would you like to deposit? (Max £100)" && parsedDeposit > 100)
+            {
+                textBoxEnterCard.Font = new Font("Arial", 15);
+                textBoxEnterCard.Show();
+                textBoxEnterCard.Text = "You cannot Deposit more than £100";
+            }
+
+            if (textBoxUserData.Text == "How much would you like to deposit? (Max £100)" && (parsedDeposit % 5 != 0))
+            {
+                textBoxEnterCard.Font = new Font("Arial", 15);
+                textBoxEnterCard.Show();
+                textBoxEnterCard.Text = "We can only accept £5, £10, & £20 notes";
+
+            }
+
+            if (textBoxUserData.Text == "How much would you like to deposit? (Max £100)" && parsedDeposit <= 100 && (parsedWithdraw % 5 == 0))
+            {
+
+
+
+                string sqlPlusUpdate = "UPDATE username SET balance = balance + @parsedDeposit WHERE name = @userName";
+
+
+
+                using (SqlCommand depositUpdate = new SqlCommand(sqlPlusUpdate, sc))
+                {
+
+                    depositUpdate.Parameters.AddWithValue("@parsedDeposit", parsedDeposit);
+                    depositUpdate.Parameters.AddWithValue("@userName", userName);
+                    sc.Open();
+                    depositUpdate.ExecuteNonQuery();
+                    sc.Close();
+                }
+
+                textBoxPin.Clear();
+                textBoxUserData.Text = "Success, Select another Service or Press 'ENT' to Exit";
+                textBoxEnterCard.Clear();
+                textBoxEnterCard2.Clear();
+
+            }
+
+            if (textBoxUserData.Text == "Success, Select another Service or Press 'ENT' to Exit")
+            {
+                Application.Exit();
+            }
+
         }
 
         private void buttonKeys_Click(object sender, EventArgs e)
@@ -250,12 +302,20 @@ namespace Banking
                 textBoxPin.Text = textBoxPin.Text + button.Text;
             }
 
-            if (textBoxUserData.Text == "How much would you like to withdraw? (Max £100)" && textBoxPin.Text.Length < 5)
+            if (textBoxUserData.Text == "How much would you like to withdraw?" && textBoxPin.Text.Length < 4)
             {
                 Button button = (Button)sender;
                 textBoxPin.UseSystemPasswordChar = false;
                 textBoxPin.Text = textBoxPin.Text + button.Text;
                 parsedWithdraw = Decimal.Parse(textBoxPin.Text);
+            }
+
+            if (textBoxUserData.Text == "How much would you like to deposit? (Max £100)" && textBoxPin.Text.Length < 4)
+            {
+                Button button = (Button)sender;
+                textBoxPin.UseSystemPasswordChar = false;
+                textBoxPin.Text = textBoxPin.Text + button.Text;
+                parsedDeposit = Decimal.Parse(textBoxPin.Text);
             }
 
         }
@@ -276,6 +336,28 @@ namespace Banking
         {
             if (textBoxLeft3.Text == "View Balance")
             {
+                sc.Open();
+                SqlCommand cmd = new SqlCommand();
+
+                string balanceCheck = "SELECT * FROM username WHERE name = @userName";
+                cmd = new SqlCommand(balanceCheck, sc);
+                cmd.Parameters.AddWithValue("@userName", userName);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+
+      
+                    userBalance = reader["Balance"].ToString();
+                    userBalanceNum = Decimal.Parse(userBalance);
+                
+                }
+
+                reader.Close();
+
+                sc.Close();
+
                 textBoxLeft1.Show();
                 textBoxLeft2.Show();
                 textBoxLeft3.Hide();
@@ -299,7 +381,21 @@ namespace Banking
                 textBoxPin.Show();
 
                 textBoxUserData.Font = new Font("Arial", 15);
-                textBoxUserData.Text = "How much would you like to withdraw? (Max £100)";
+                textBoxUserData.Text = "How much would you like to withdraw?";
+            }
+        }
+
+        private void buttonArrow3_Click(object sender, EventArgs e)
+        {
+            if (textBoxLeft1.Text == "Deposit Money")
+            {
+                textBoxLeft1.Hide();
+                textBoxLeft2.Show();
+                textBoxLeft3.Show();
+                textBoxPin.Show();
+
+                textBoxUserData.Font = new Font("Arial", 15);
+                textBoxUserData.Text = "How much would you like to deposit? (Max £100)";
             }
         }
     }

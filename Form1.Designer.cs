@@ -212,6 +212,7 @@ namespace Banking
             this.buttonArrow3.TabIndex = 13;
             this.buttonArrow3.Text = ">";
             this.buttonArrow3.UseVisualStyleBackColor = true;
+            this.buttonArrow3.Click += new System.EventHandler(this.buttonArrow3_Click);
             // 
             // buttonArrow2
             // 
@@ -271,7 +272,7 @@ namespace Banking
             // 
             this.textBoxLeft2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxLeft2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxLeft2.Location = new System.Drawing.Point(125, 142);
+            this.textBoxLeft2.Location = new System.Drawing.Point(125, 151);
             this.textBoxLeft2.Name = "textBoxLeft2";
             this.textBoxLeft2.Size = new System.Drawing.Size(173, 25);
             this.textBoxLeft2.TabIndex = 22;
